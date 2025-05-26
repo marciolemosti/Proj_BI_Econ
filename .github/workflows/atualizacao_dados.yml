@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
     # Permite execução manual do workflow
 
+permissions:
+  contents: write
+
 jobs:
   atualizar-dados:
     runs-on: ubuntu-latest
@@ -40,4 +43,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add -f data/*.json
           git commit -m "Atualização automática de dados [skip ci]" || echo "Sem alterações para commit"
+          git remote set-url origin https://x-access-token:${{'$'}}{{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
           git push
