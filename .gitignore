@@ -52,7 +52,7 @@ tmp/
 .DS_Store
 
 # Arquivos de dados gerados
-#data/*.json
+data/*.json
 data/*.csv
 data/*.html
 !data/.gitkeep
