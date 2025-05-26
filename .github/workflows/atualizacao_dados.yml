@@ -36,7 +36,10 @@ jobs:
       - name: Processar previsões
         run: |
           python -m src.dados.processadores.previsao
-      
+
+      - name: Pull latest changes
+        run: git pull origin main
+  
       - name: Commit e push das alterações
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
